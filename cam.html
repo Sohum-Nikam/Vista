@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>camera</title>
+    <link rel="stylesheet" type="text/css" href="camera.css">
+    <link rel="stylesheet" type="text/css" href="foods.css">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel="stylesheet">
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+    article, aside, figure, footer, header, hgroup, 
+    menu, nav, section { display: block; }
+    </style>
+    </head>
+    <body>
+    <main>
+        <h1>no name</h1>
+        <form>
+            
+        </form>
+        <div id="imagewrapper">
+            <image id="showimage" preload="none" autoplay="autoplay"
+            src="#" width="100%" height="auto"></image>
+            <!--poster="https://i.imgur.com/JjqzFvI.png"-->
+        </div>
+    </main>
+
+    <div class="container">
+        <a class="btn btn-2"><i class="fa fa-play"></i></a>
+        <input type="file" accept="image/*" name="image" id="file" style="display:none;">
+    </div>
+        <input type='file' onchange="readURL(this);" />
+        <img id="blah" src="#" alt="your image" />
+        <a href="fy.html">
+        <p><label for="file" style="cursor: pointer;">upload image</label></p>
+        <img id="output" width="200"/>
+        </a>
+        
+        <script>
+            function readURL(input) {
+        
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+        
+                    reader.onload = function(e) {
+                        $('#showimage').attr('src',e.target.result);
+                    }
+        
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        
+            $("#captureimage").change(function() {
+                readURL(this);
+            });
+            
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+        
+                    reader.onload = function (e) {
+                        $('#blah')
+                            .attr('src', e.target.result)
+                            .width(550)
+                            .height(550);
+                    };
+        
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        
+            var loadfile = function(event) {
+                var image = document.getElementById('output');
+                image.src = URL.createObjectURL(event.target.files[0]);
+            };
+        
+        </script>
+        <script src="bower_components/aos/dist/aos.js"></script>
+        <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script type="text/javascript" src="relative/path/to/your/javascript.js"></script>
+        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    </body>
+</html>
